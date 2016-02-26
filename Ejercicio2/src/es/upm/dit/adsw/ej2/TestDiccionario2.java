@@ -216,7 +216,7 @@ public class TestDiccionario2 {
 		datosDBinario.print();
 		datosDBinario.remove("uno");
 		datosDBinario.print();
-		// assertNull(datosDBinario.get("uno"));
+		assertNull(datosDBinario.get("uno"));
 	}
 
 	/**
@@ -231,10 +231,10 @@ public class TestDiccionario2 {
 		datosDBinario.put("cuatro", "num4");
 		datosDBinario.put("cinco", "num5");
 
-//		datosDBinario.print();
+		datosDBinario.print();
 		
 		datosDBinario.remove("uno");
-//		datosDBinario.print();
+		datosDBinario.print();
 		datosDBinario.remove("dos");
 		datosDBinario.print();
 		datosDBinario.remove("tres");
