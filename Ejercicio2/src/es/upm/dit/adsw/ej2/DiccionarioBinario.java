@@ -142,14 +142,16 @@ public class DiccionarioBinario implements Diccionario {
 			int posiClaveBorrada = busca(clave);
 			String valorBorrado = datos[posiClaveBorrada].getValor();
 			datos[busca(clave)] = null;
-			if (posiClaveBorrada != nDatos - 1) {
+			
 				System.arraycopy(datos, posiClaveBorrada + 1, datos,
 						posiClaveBorrada, nDatos - 1 - posiClaveBorrada);
-
 				nDatos--;
+
+				
+				check();
 				return valorBorrado;
 			}
-		}
+		
 
 		return null;
 	}
@@ -181,11 +183,36 @@ public class DiccionarioBinario implements Diccionario {
 	 */
 	public void print() {
 
-		for (int i = 0; i < nDatos; i++) {
+		for (int i = 0; i < datos.length; i++) {
 			if (datos[i] != null) {
 				System.out.println(datos[i].getClave());
+			}
+			if(datos[i]==null){
+				System.out.println("NULL");
 			}
 		}
 		System.out.println();
 	}
+	
+	private void check() {
+		int pos = 0;
+		while (pos < datos.length && datos[pos] != null) {
+		if (pos + 1 < datos.length && datos[pos + 1] != null) {
+		String k1 = datos[pos].getClave();
+		String k2 = datos[pos + 1].getClave();
+		if (k1.compareTo(k2) > 0)
+		System.err.println("ERROR: datos desordenados");
+		if (k1.equals(k2))
+		System.err.println("ERROR: datos duplicados");
+		}
+		pos++;
+		}
+		if (pos != nDatos)
+		System.err.println("ERROR: datos mal contados");
+		while (pos < datos.length) {
+		if (datos[pos] != null)
+		System.err.println("ERROR: datos en la zona vacia");
+		pos++;
+		}
+		}
 }
