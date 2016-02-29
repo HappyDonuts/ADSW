@@ -143,10 +143,10 @@ public class DiccionarioBinario implements Diccionario {
 			String valorBorrado = datos[posiClaveBorrada].getValor();
 			datos[busca(clave)] = null;
 			
-				System.arraycopy(datos, posiClaveBorrada + 1, datos,
-						posiClaveBorrada, nDatos - 1 - posiClaveBorrada);
+				System.arraycopy(datos, posiClaveBorrada+1 , datos,
+						posiClaveBorrada, nDatos -1 - posiClaveBorrada);
 				nDatos--;
-
+				datos[nDatos]=null;
 				
 				check();
 				return valorBorrado;

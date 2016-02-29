@@ -238,14 +238,14 @@ public class TestDiccionario2 {
 		datosDBinario.print();
 		datosDBinario.remove("dos");
 		datosDBinario.print();
-//		datosDBinario.remove("tres");
-//		datosDBinario.print();
-//
-//		assertNull(datosDBinario.get("uno"));
-//		assertNull(datosDBinario.get("dos"));
-//		assertNull(datosDBinario.get("tres"));
-//		assertEquals(datosDBinario.get("cuatro"), "num4");
-//		assertEquals(datosDBinario.get("cinco"), "num5");
+		datosDBinario.remove("tres");
+		datosDBinario.print();
+
+		assertNull(datosDBinario.get("uno"));
+		assertNull(datosDBinario.get("dos"));
+		assertNull(datosDBinario.get("tres"));
+		assertEquals(datosDBinario.get("cuatro"), "num4");
+		assertEquals(datosDBinario.get("cinco"), "num5");
 	}
 
 	/**
