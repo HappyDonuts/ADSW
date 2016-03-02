@@ -1,8 +1,5 @@
 package es.upm.dit.adsw.ej2;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class DiccionarioBinario implements Diccionario {
 
 	private final CV[] datos;
@@ -35,9 +32,10 @@ public class DiccionarioBinario implements Diccionario {
 
 		// Comprueba que la clave se encuentra en el array, y sobreescribe el
 		// valor.
-		if ((datos[busca(clave)] != null)
-				&& (datos[busca(clave)].getClave() == clave)) {
-			datos[busca(clave)].setValor(valor);
+		int buscaClave = busca(clave);
+		if ((datos[buscaClave] != null)
+				&& (datos[buscaClave].getClave() == clave)) {
+			datos[buscaClave].setValor(valor);
 			return;
 		}
 		// Si el nmero de datos es igual o superior al tamaño del array, no cabe
@@ -49,15 +47,13 @@ public class DiccionarioBinario implements Diccionario {
 		// Si la clave no está presente y hay sitio, introduce la clave-valor, y
 		// luego ordena el array
 		CV objetoCV = new CV(clave, valor);
-		datos[nDatos] = objetoCV;
+		
+		
+		
+		System.arraycopy(datos, buscaClave , datos,
+				buscaClave+1, nDatos  - buscaClave);
+		datos[buscaClave] = objetoCV;
 		nDatos++;
-
-		Arrays.sort(datos, 0, nDatos, new Comparator<CV>() {
-			public int compare(CV o1, CV o2) {
-				return o1.getClave().compareTo(o2.getClave());
-
-			}
-		});
 
 	}
 
@@ -81,7 +77,8 @@ public class DiccionarioBinario implements Diccionario {
 		int z = nDatos - 1;
 		while (a < z) {
 			int m = (a + z) / 2;
-			int cmp = clave.compareTo(datos[m].getClave());
+//			int cmp = clave.compareTo(datos[m].getClave());
+			int cmp = OpMeter.compareTo(clave,datos[m].getClave());
 			if (cmp == 0) {
 
 				return m;
@@ -111,9 +108,10 @@ public class DiccionarioBinario implements Diccionario {
 			throw new IllegalArgumentException();
 		}
 		// Busca la clave en el array, y si está devuelve el valor
-		if ((datos[busca(clave)] != null)
-				&& (datos[busca(clave)].getClave() == clave)) {
-			return datos[busca(clave)].getValor();
+		int buscaClave= busca(clave);
+		if ((datos[buscaClave] != null)
+				&& (datos[buscaClave].getClave() == clave)) {
+			return datos[buscaClave].getValor();
 		}
 		return null;
 
@@ -136,15 +134,14 @@ public class DiccionarioBinario implements Diccionario {
 		if ((clave == null) || (clave.isEmpty() == true)) {
 			throw new IllegalArgumentException();
 		}
-
-		if ((datos[busca(clave)] != null)
-				&& (datos[busca(clave)].getClave() == clave)) {
-			int posiClaveBorrada = busca(clave);
-			String valorBorrado = datos[posiClaveBorrada].getValor();
-			datos[busca(clave)] = null;
+		int buscaClave = busca(clave);
+		if ((datos[buscaClave] != null)
+				&& (datos[buscaClave].getClave() == clave)) {
+			String valorBorrado = datos[buscaClave].getValor();
+			datos[buscaClave] = null;
 			
-				System.arraycopy(datos, posiClaveBorrada+1 , datos,
-						posiClaveBorrada, nDatos -1 - posiClaveBorrada);
+				System.arraycopy(datos, buscaClave+1 , datos,
+						buscaClave, nDatos -1 - buscaClave);
 				nDatos--;
 				datos[nDatos]=null;
 				

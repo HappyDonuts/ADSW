@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class TestDiccionario2 {
 	DiccionarioBinario datosDBinario = new DiccionarioBinario(5);
-	// DiccionarioHashMap datosHashMap = new DiccionarioHashMap();
+	BST datosBST = new BST();
 
 	/**
 	 * Ponemos un elemento
@@ -332,303 +332,303 @@ public class TestDiccionario2 {
 		// datosLineal.put("uno", "num1");
 		// assertEquals(datosLineal.size(), 1);
 	}
-}
 
-// /**
-// * Ponemos un elemento
-// */
-// @Test
-// public void testPutHashMap1() {
-// datosHashMap.put("patata", "tuberculo");
-// assertEquals(datosHashMap.get("patata"), "tuberculo");
-// }
-//
-// /**
-// * Ponemos 4 elementos
-// */
-// @Test
-// public void testPutHashMap2() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.put("dos", "num2");
-// datosHashMap.put("tres", "num3");
-// datosHashMap.put("cuatro", "num4");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// assertEquals(datosHashMap.get("dos"), "num2");
-// assertEquals(datosHashMap.get("tres"), "num3");
-// assertEquals(datosHashMap.get("cuatro"), "num4");
-// }
-//
-// /**
-// * Ponemos un elemento y lo sustituimos
-// */
-// @Test
-// public void testPutHashMap3() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// datosHashMap.put("uno", "num1sustituto1");
-// assertEquals(datosHashMap.get("uno"), "num1sustituto1");
-// }
-//
-// /**
-// * Ponemos un elemento y lo sustituimos varias veces
-// */
-// @Test
-// public void testPutHashMap4() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// datosHashMap.put("uno", "num1sustituto1");
-// assertEquals(datosHashMap.get("uno"), "num1sustituto1");
-// datosHashMap.put("uno", "num1sustituto2");
-// assertEquals(datosHashMap.get("uno"), "num1sustituto2");
-// datosHashMap.put("uno", "num1sustituto3");
-// assertEquals(datosHashMap.get("uno"), "num1sustituto3");
-// }
-//
-// /**
-// * Sustituimos dos elementos distintos simultaneamente
-// */
-// @Test
-// public void testPutHashMap5() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// datosHashMap.put("uno", "num1sustituto");
-// assertEquals(datosHashMap.get("uno"), "num1sustituto");
-// datosHashMap.put("dos", "num2");
-// assertEquals(datosHashMap.get("dos"), "num2");
-// datosHashMap.put("dos", "num2sustituto");
-// assertEquals(datosHashMap.get("dos"), "num2sustituto");
-// }
-//
-// /**
-// * Sustituimos un elemento y lo ponemos com estaba al principio
-// */
-// @Test
-// public void testPutHashMap6() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// datosHashMap.put("uno", "num1sustituto1");
-// assertEquals(datosHashMap.get("uno"), "num1sustituto1");
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// }
-//
-// /**
-// * Ponemos 5 elementos
-// */
-// @Test
-// public void testPutHashMap7() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.put("dos", "num2");
-// datosHashMap.put("tres", "num3");
-// datosHashMap.put("cuatro", "num4");
-// datosHashMap.put("cinco", "num5");
-//
-// assertEquals(datosHashMap.get("uno"), "num1");
-// assertEquals(datosHashMap.get("dos"), "num2");
-// assertEquals(datosHashMap.get("tres"), "num3");
-// assertEquals(datosHashMap.get("cuatro"), "num4");
-// assertEquals(datosHashMap.get("cinco"), "num5");
-// }
-//
-// /**
-// * Ponemos 5, y los sustituimos todos de golpe
-// */
-// @Test
-// public void testPutHashMap8() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.put("dos", "num2");
-// datosHashMap.put("tres", "num3");
-// datosHashMap.put("cuatro", "num4");
-// datosHashMap.put("cinco", "num5");
-//
-// datosHashMap.put("uno", "num1sust");
-// datosHashMap.put("dos", "num2sust");
-// datosHashMap.put("tres", "num3sust");
-// datosHashMap.put("cuatro", "num4sust");
-// datosHashMap.put("cinco", "num5sust");
-//
-// assertEquals(datosHashMap.get("uno"), "num1sust");
-// assertEquals(datosHashMap.get("dos"), "num2sust");
-// assertEquals(datosHashMap.get("tres"), "num3sust");
-// assertEquals(datosHashMap.get("cuatro"), "num4sust");
-// assertEquals(datosHashMap.get("cinco"), "num5sust");
-// }
-//
-// /**
-// * introducimos una clave nula
-// */
-// @Test(expected = IllegalArgumentException.class)
-// public void testPutHashMap10() throws Exception {
-// datosHashMap.clear();
-// datosHashMap.put(null, "aloha");
-// }
-//
-// /**
-// * Una clave vacia
-// */
-// @Test(expected = IllegalArgumentException.class)
-// public void testPutHashMap11() throws Exception {
-// datosHashMap.clear();
-// datosHashMap.put("", "aloha");
-// }
-//
-// /**
-// * Vemos el tama�o de un diccionario vacio
-// */
-// @Test
-// public void testSizeHashMap1() {
-// datosHashMap.clear();
-// assertEquals(datosHashMap.size(), 0);
-// }
-//
-// /**
-// * Vemos el tama�o con un elemento
-// */
-// @Test
-// public void testSizeHashMap2() {
-// datosHashMap.clear();
-// datosHashMap.put("zanahoria", "cosa naranja");
-// assertEquals(datosHashMap.size(), 1);
-// }
-//
-// /**
-// * Tama�o 5 elementos
-// */
-// @Test
-// public void testSizeHashMap3() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.put("dos", "num2");
-// datosHashMap.put("tres", "num3");
-// datosHashMap.put("cuatro", "num4");
-// datosHashMap.put("cinco", "num5");
-// assertEquals(datosHashMap.size(), 5);
-// }
-//
-// /**
-// * Ponemos un elemento y lo quitamos
-// */
-// @Test
-// public void testRemoveHashMap1() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.get("uno"), "num1");
-// datosHashMap.remove("uno");
-// assertNull(datosHashMap.get("uno"));
-// }
-//
-// /**
-// * ponemos 5 elementos, quitamos 3
-// */
-// @Test
-// public void testRemoveHashMap2() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.put("dos", "num2");
-// datosHashMap.put("tres", "num3");
-// datosHashMap.put("cuatro", "num4");
-// datosHashMap.put("cinco", "num5");
-//
-// datosHashMap.remove("uno");
-// datosHashMap.remove("dos");
-// datosHashMap.remove("tres");
-//
-// assertNull(datosHashMap.get("uno"));
-// assertNull(datosHashMap.get("dos"));
-// assertNull(datosHashMap.get("tres"));
-// assertEquals(datosHashMap.get("cuatro"), "num4");
-// assertEquals(datosHashMap.get("cinco"), "num5");
-// }
-//
-// /**
-// * Quitamos una clave nula
-// */
-// @Test(expected = IllegalArgumentException.class)
-// public void testRemoveHashMap3() throws Exception {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.remove(null);
-// }
-//
-// /**
-// * Quitamos una clave vacia
-// */
-// @Test(expected = IllegalArgumentException.class)
-// public void testRemoveHashMap4() throws Exception {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.remove("");
-// }
-//
-// /**
-// * buscamos una clave nula
-// */
-// @Test(expected = IllegalArgumentException.class)
-// public void testGetHashMap1() throws Exception {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.get(null);
-// }
-//
-// /**
-// * Buscamos una clave vacia
-// */
-// @Test(expected = IllegalArgumentException.class)
-// public void testGetHashMap2() throws Exception {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// datosHashMap.get("");
-// }
-//
-// /**
-// * Buscamos una clave que no esta en el diccionario
-// */
-// @Test
-// public void testGetHashMap3() {
-// datosHashMap.clear();
-// assertNull(datosHashMap.get("uno"));
-// }
-//
-// /**
-// * Metemos tres elementos, y limpiamos el diccionario
-// */
-// @Test
-// public void testClearHashMap1() {
-// datosHashMap.put("uno", "num1");
-// datosHashMap.put("dos", "num2");
-// datosHashMap.put("tres", "num3");
-// assertEquals(datosHashMap.size(), 3);
-// datosHashMap.clear();
-// assertEquals(datosHashMap.size(), 0);
-// }
-//
-// /**
-// * Limpiamos un diccionario
-// */
-// @Test
-// public void testClearHashMap2() {
-// datosHashMap.clear();
-// assertEquals(datosHashMap.size(), 0);
-// }
-//
-// /**
-// * Limpiamos un diccionario, y luego introducimos un elemento
-// */
-// @Test
-// public void testClearHashMap3() {
-// datosHashMap.clear();
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.size(), 1);
-// datosHashMap.clear();
-// assertEquals(datosHashMap.size(), 0);
-// datosHashMap.put("uno", "num1");
-// assertEquals(datosHashMap.size(), 1);
-// }
-// }
+
+ /**
+ * Ponemos un elemento
+ */
+ @Test
+ public void testPutHashMap1() {
+ datosBST.put("patata", "tuberculo");
+ assertEquals(datosBST.get("patata"), "tuberculo");
+ }
+
+ /**
+ * Ponemos 4 elementos
+ */
+ @Test
+ public void testPutHashMap2() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.put("dos", "num2");
+ datosBST.put("tres", "num3");
+ datosBST.put("cuatro", "num4");
+ assertEquals(datosBST.get("uno"), "num1");
+ assertEquals(datosBST.get("dos"), "num2");
+ assertEquals(datosBST.get("tres"), "num3");
+ assertEquals(datosBST.get("cuatro"), "num4");
+ }
+
+ /**
+ * Ponemos un elemento y lo sustituimos
+ */
+ @Test
+ public void testPutHashMap3() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.get("uno"), "num1");
+ datosBST.put("uno", "num1sustituto1");
+ assertEquals(datosBST.get("uno"), "num1sustituto1");
+ }
+
+ /**
+ * Ponemos un elemento y lo sustituimos varias veces
+ */
+ @Test
+ public void testPutHashMap4() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.get("uno"), "num1");
+ datosBST.put("uno", "num1sustituto1");
+ assertEquals(datosBST.get("uno"), "num1sustituto1");
+ datosBST.put("uno", "num1sustituto2");
+ assertEquals(datosBST.get("uno"), "num1sustituto2");
+ datosBST.put("uno", "num1sustituto3");
+ assertEquals(datosBST.get("uno"), "num1sustituto3");
+ }
+
+ /**
+ * Sustituimos dos elementos distintos simultaneamente
+ */
+ @Test
+ public void testPutHashMap5() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.get("uno"), "num1");
+ datosBST.put("uno", "num1sustituto");
+ assertEquals(datosBST.get("uno"), "num1sustituto");
+ datosBST.put("dos", "num2");
+ assertEquals(datosBST.get("dos"), "num2");
+ datosBST.put("dos", "num2sustituto");
+ assertEquals(datosBST.get("dos"), "num2sustituto");
+ }
+
+ /**
+ * Sustituimos un elemento y lo ponemos com estaba al principio
+ */
+ @Test
+ public void testPutHashMap6() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.get("uno"), "num1");
+ datosBST.put("uno", "num1sustituto1");
+ assertEquals(datosBST.get("uno"), "num1sustituto1");
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.get("uno"), "num1");
+ }
+
+ /**
+ * Ponemos 5 elementos
+ */
+ @Test
+ public void testPutHashMap7() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.put("dos", "num2");
+ datosBST.put("tres", "num3");
+ datosBST.put("cuatro", "num4");
+ datosBST.put("cinco", "num5");
+
+ assertEquals(datosBST.get("uno"), "num1");
+ assertEquals(datosBST.get("dos"), "num2");
+ assertEquals(datosBST.get("tres"), "num3");
+ assertEquals(datosBST.get("cuatro"), "num4");
+ assertEquals(datosBST.get("cinco"), "num5");
+ }
+
+ /**
+ * Ponemos 5, y los sustituimos todos de golpe
+ */
+ @Test
+ public void testPutHashMap8() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.put("dos", "num2");
+ datosBST.put("tres", "num3");
+ datosBST.put("cuatro", "num4");
+ datosBST.put("cinco", "num5");
+
+ datosBST.put("uno", "num1sust");
+ datosBST.put("dos", "num2sust");
+ datosBST.put("tres", "num3sust");
+ datosBST.put("cuatro", "num4sust");
+ datosBST.put("cinco", "num5sust");
+
+ assertEquals(datosBST.get("uno"), "num1sust");
+ assertEquals(datosBST.get("dos"), "num2sust");
+ assertEquals(datosBST.get("tres"), "num3sust");
+ assertEquals(datosBST.get("cuatro"), "num4sust");
+ assertEquals(datosBST.get("cinco"), "num5sust");
+ }
+
+ /**
+ * introducimos una clave nula
+ */
+ @Test(expected = IllegalArgumentException.class)
+ public void testPutHashMap10() throws Exception {
+ datosBST.clear();
+ datosBST.put(null, "aloha");
+ }
+
+ /**
+ * Una clave vacia
+ */
+ @Test(expected = IllegalArgumentException.class)
+ public void testPutHashMap11() throws Exception {
+ datosBST.clear();
+ datosBST.put("", "aloha");
+ }
+
+ /**
+ * Vemos el tama�o de un diccionario vacio
+ */
+ @Test
+ public void testSizeHashMap1() {
+ datosBST.clear();
+ assertEquals(datosBST.size(), 0);
+ }
+
+ /**
+ * Vemos el tama�o con un elemento
+ */
+ @Test
+ public void testSizeHashMap2() {
+ datosBST.clear();
+ datosBST.put("zanahoria", "cosa naranja");
+ assertEquals(datosBST.size(), 1);
+ }
+
+ /**
+ * Tama�o 5 elementos
+ */
+ @Test
+ public void testSizeHashMap3() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.put("dos", "num2");
+ datosBST.put("tres", "num3");
+ datosBST.put("cuatro", "num4");
+ datosBST.put("cinco", "num5");
+ assertEquals(datosBST.size(), 5);
+ }
+
+ /**
+ * Ponemos un elemento y lo quitamos
+ */
+ @Test
+ public void testRemoveHashMap1() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.get("uno"), "num1");
+ datosBST.remove("uno");
+ assertNull(datosBST.get("uno"));
+ }
+
+ /**
+ * ponemos 5 elementos, quitamos 3
+ */
+ @Test
+ public void testRemoveHashMap2() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.put("dos", "num2");
+ datosBST.put("tres", "num3");
+ datosBST.put("cuatro", "num4");
+ datosBST.put("cinco", "num5");
+
+ datosBST.remove("uno");
+ datosBST.remove("dos");
+ datosBST.remove("tres");
+
+ assertNull(datosBST.get("uno"));
+ assertNull(datosBST.get("dos"));
+ assertNull(datosBST.get("tres"));
+ assertEquals(datosBST.get("cuatro"), "num4");
+ assertEquals(datosBST.get("cinco"), "num5");
+ }
+
+ /**
+ * Quitamos una clave nula
+ */
+ @Test(expected = IllegalArgumentException.class)
+ public void testRemoveHashMap3() throws Exception {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.remove(null);
+ }
+
+ /**
+ * Quitamos una clave vacia
+ */
+ @Test(expected = IllegalArgumentException.class)
+ public void testRemoveHashMap4() throws Exception {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.remove("");
+ }
+
+ /**
+ * buscamos una clave nula
+ */
+ @Test(expected = IllegalArgumentException.class)
+ public void testGetHashMap1() throws Exception {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.get(null);
+ }
+
+ /**
+ * Buscamos una clave vacia
+ */
+ @Test(expected = IllegalArgumentException.class)
+ public void testGetHashMap2() throws Exception {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ datosBST.get("");
+ }
+
+ /**
+ * Buscamos una clave que no esta en el diccionario
+ */
+ @Test
+ public void testGetHashMap3() {
+ datosBST.clear();
+ assertNull(datosBST.get("uno"));
+ }
+
+ /**
+ * Metemos tres elementos, y limpiamos el diccionario
+ */
+ @Test
+ public void testClearHashMap1() {
+ datosBST.put("uno", "num1");
+ datosBST.put("dos", "num2");
+ datosBST.put("tres", "num3");
+ assertEquals(datosBST.size(), 3);
+ datosBST.clear();
+ assertEquals(datosBST.size(), 0);
+ }
+
+ /**
+ * Limpiamos un diccionario
+ */
+ @Test
+ public void testClearHashMap2() {
+ datosBST.clear();
+ assertEquals(datosBST.size(), 0);
+ }
+
+ /**
+ * Limpiamos un diccionario, y luego introducimos un elemento
+ */
+ @Test
+ public void testClearHashMap3() {
+ datosBST.clear();
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.size(), 1);
+ datosBST.clear();
+ assertEquals(datosBST.size(), 0);
+ datosBST.put("uno", "num1");
+ assertEquals(datosBST.size(), 1);
+ }
+ }
