@@ -1,11 +1,23 @@
 package es.upm.dit.adsw.ej3;
 
-public class HashListas implements Diccionario{
+import java.awt.List;
+import java.util.ArrayList;
+
+public class HashListas implements Diccionario {
+
+	public HashListas(int nSlots) {
+
+		slots = new List[nSlots];
+
+		for (int i = 0; i < nSlots; i++) {
+			slots[i] = new ArrayList<CV>();
+		}
+	}
 
 	@Override
 	public void put(String clave, String valor) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -29,7 +41,7 @@ public class HashListas implements Diccionario{
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
