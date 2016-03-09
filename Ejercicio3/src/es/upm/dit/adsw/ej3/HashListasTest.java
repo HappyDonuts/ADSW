@@ -11,7 +11,7 @@ public class HashListasTest {
 	HashListas datosHashListas = new HashListas(3);
 
 	/**
-	 * Ponemos un elemento
+	 * Falla si no consigue meter un elemento
 	 */
 	@Test
 	public void testPutLineal1() {
@@ -21,26 +21,26 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Ponemos 4 elementos
+	 * Falla si no pone 4 elementos y luego los devuelve
 	 */
 	@Test
 	public void testPutLineal2() {
-		// datosHashListas.clear();
+		datosHashListas.clear();
 		datosHashListas.put("uno", "num1");
 		datosHashListas.put("dos", "num2");
 		datosHashListas.put("tres", "num3");
-		// datosHashListas.put("cuatro", "num4");
+		datosHashListas.put("cuatro", "num4");
 
-		// datosHashListas.print();
+		datosHashListas.print();
 
 		assertEquals(datosHashListas.get("uno"), "num1");
 		assertEquals(datosHashListas.get("dos"), "num2");
 		assertEquals(datosHashListas.get("tres"), "num3");
-		// assertEquals(datosHashListas.get("cuatro"), "num4");
+		assertEquals(datosHashListas.get("cuatro"), "num4");
 	}
 
 	/**
-	 * Ponemos un elemento y lo sustituimos
+	 * Falla si no devuelve el valor actualizado
 	 */
 	@Test
 	public void testPutLineal3() {
@@ -52,7 +52,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Ponemos un elemento y lo sustituimos varias veces
+	 * Falla si no devuelve el valor segun se actualiza
 	 */
 	@Test
 	public void testPutLineal4() {
@@ -68,7 +68,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Sustituimos dos elementos distintos simultaneamente
+	 * Falla si no devuelve los distintos valores actualziados
 	 */
 	@Test
 	public void testPutLineal5() {
@@ -84,7 +84,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Sustituimos un elemento y lo ponemos com estaba al principio
+	 * Falla si no devuelve el valor original despues de haberlo actualizado
 	 */
 	@Test
 	public void testPutLineal6() {
@@ -98,26 +98,20 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Ponemos el numero maximo de elentos, 5 en este caso
+	 * Falla si no devuelve el valor original despues de volver a introducirlo
 	 */
 	@Test
 	public void testPutLineal7() {
 		datosHashListas.clear();
 		datosHashListas.put("uno", "num1");
-		datosHashListas.put("dos", "num2");
-		datosHashListas.put("tres", "num3");
-		datosHashListas.put("cuatro", "num4");
-		datosHashListas.put("cinco", "num5");
-
 		assertEquals(datosHashListas.get("uno"), "num1");
-		assertEquals(datosHashListas.get("dos"), "num2");
-		assertEquals(datosHashListas.get("tres"), "num3");
-		assertEquals(datosHashListas.get("cuatro"), "num4");
-		assertEquals(datosHashListas.get("cinco"), "num5");
+
+		datosHashListas.put("uno", "num1");
+		assertEquals(datosHashListas.get("uno"), "num1");
 	}
 
 	/**
-	 * Ponemos el numero maximo de elementos, y los sustituimos todos de golpe
+	 * Falla si no deveulve los valores actualziados
 	 */
 	@Test
 	public void testPutLineal8() {
@@ -142,7 +136,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * introducimos una clave nula
+	 * Falla si al introducir una clave nula no devuelve la excepción
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testPutLineal10() throws Exception {
@@ -151,7 +145,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Una clave vacia
+	 * Falla si al introducir una clave vacia no devuelve excepcion
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testPutLineal11() throws Exception {
@@ -160,7 +154,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Vemos el tamaï¿½o de un diccionario vacio
+	 * Falla si el tamaño de un diccionario vacio difiere de cero
 	 */
 	@Test
 	public void testSizeLineal1() {
@@ -169,7 +163,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Vemos el tamaï¿½o con un elemento
+	 * Falla si al meter un elemento no devuelve el tamaño adecuado
 	 */
 	@Test
 	public void testSizeLineal2() {
@@ -179,7 +173,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Tamaï¿½o con el numero mï¿½ximo de elementos
+	 * Falla si no devuelve el tamaño adecuado con cinco elementos
 	 */
 	@Test
 	public void testSizeLineal3() {
@@ -193,7 +187,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Ponemos un elemento y lo quitamos
+	 * Falla si al quitar un elemento el tamaño no se actualiza
 	 */
 	@Test
 	public void testRemoveLineal1() {
@@ -208,7 +202,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * ponemos 5 elementos, quitamos 3
+	 * Falla si al meter 5 y quitar 3 elementos no devuelve el tamaño correcto
 	 */
 	@Test
 	public void testRemoveLineal2() {
@@ -232,7 +226,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Quitamos una clave nula
+	 * Falla si al quitar una clave nula no devuelve excepcion
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testRemoveLineal3() throws Exception {
@@ -242,7 +236,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Quitamos una clave vacia
+	 * Falla si al quitar una clave vacia no devuelve excepcion
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testRemoveLineal4() throws Exception {
@@ -252,7 +246,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * buscamos una clave nula
+	 * Falla si al pedir una clave nula no devuelve excepcion
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetLineal1() throws Exception {
@@ -262,7 +256,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Buscamos una clave vacia
+	 * Falla si al pedir una clave vacia no devuelve excepcion
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetLineal2() throws Exception {
@@ -272,7 +266,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Buscamos una clave que no esta en el diccionario
+	 * Falla si al pedir una clave que no está no devuelve null
 	 */
 	@Test
 	public void testGetLineal3() {
@@ -281,7 +275,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Metemos tres elementos, y limpiamos el diccionario
+	 * Falla si al limpiar un diccionaria el tamaño no es 0
 	 */
 	@Test
 	public void testClearLineal1() {
@@ -294,7 +288,7 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Limpiamos un diccionario
+	 * Falla si al limpiar un diccionario vacio el tamaño no es 0
 	 */
 	@Test
 	public void testClearLineal2() {
@@ -303,7 +297,8 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Limpiamos un diccionario, y luego introducimos un elemento
+	 * Falla si al limpiar un diccionario y luego introducir un elemnto no
+	 * devuelve el tamaño correcto
 	 */
 	@Test
 	public void testClearLineal3() {

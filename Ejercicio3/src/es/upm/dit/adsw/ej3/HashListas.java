@@ -40,7 +40,7 @@ public class HashListas implements Diccionario {
 		}
 
 		slots[idx].add(new CV(clave, valor));
-		nDatos++;
+		nDatos = -1;
 
 	}
 
@@ -54,7 +54,7 @@ public class HashListas implements Diccionario {
 		int idx = Math.abs(clave.hashCode()) % slots.length;
 		List<CV> lista = slots[idx];
 		for (CV cv : lista) {
-			if (cv.getClave().equals(clave))
+			if (OpMeter.compareTo(cv.getClave(), clave) == 0)
 				return cv.getValor();
 		}
 		return null;
@@ -73,7 +73,7 @@ public class HashListas implements Diccionario {
 			if (cv.getClave().equals(clave)) {
 				String valorBorrado = cv.getValor();
 				lista.remove(cv);
-				nDatos--;
+				nDatos = -1;
 				return valorBorrado;
 			}
 		}
@@ -83,17 +83,20 @@ public class HashListas implements Diccionario {
 
 	@Override
 	public int size() {
-
-		return nDatos;
+		int size = 0;
+		for (List<CV> lista : slots) {
+			size += lista.size();
+		}
+		return size;
 	}
 
 	@Override
 	public void clear() {
+
 		for (int i = 0; i < slots.length; i++) {
 			slots[i].clear();
 			nDatos = 0;
 		}
-
 	}
 
 	public void print() {
