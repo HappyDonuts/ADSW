@@ -13,7 +13,7 @@ public class Meter1Ops {
     private static final Random random = new Random();
 
     public static void main(String[] args) {
-//        Diccionario diccionario = new DiccionarioBinario(100000);
+        Diccionario diccionario = new HashListas(100000);
 //        Diccionario diccionario = new BST();
 
         int[] nn = {
