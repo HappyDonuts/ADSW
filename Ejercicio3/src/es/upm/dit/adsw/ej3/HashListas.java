@@ -83,11 +83,14 @@ public class HashListas implements Diccionario {
 
 	@Override
 	public int size() {
-		int size = 0;
-		for (List<CV> lista : slots) {
-			size += lista.size();
+		if (nDatos == -1) {
+			int size = 0;
+			for (List<CV> lista : slots) {
+				size += lista.size();
+				nDatos = size;
+			}
 		}
-		return size;
+		return nDatos;
 	}
 
 	@Override
