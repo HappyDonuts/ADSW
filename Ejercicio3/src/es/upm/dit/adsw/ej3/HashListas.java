@@ -99,6 +99,9 @@ public class HashListas implements Diccionario {
 		}
 	}
 
+	/**
+	 * Metodo personal que usé para depurar
+	 */
 	public void print() {
 		for (int j = 0; j < slots.length; j++) {
 			for (int i = 0; i < slots[j].size(); i++) {
