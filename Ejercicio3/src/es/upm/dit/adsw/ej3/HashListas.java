@@ -18,67 +18,76 @@ public class HashListas implements Diccionario {
 		slots = new List[nSlots];
 
 		for (int i = 0; i < nSlots; i++) {
-			slots[i] = new ArrayList<CV>(0);
-			nDatos=0;
+			slots[i] = new ArrayList<CV>();
+			nDatos = 0;
 		}
 	}
 
 	@Override
 	public void put(String clave, String valor) {
-		
+
 		if ((clave == null) || (clave.isEmpty() == true)) {
 			throw new IllegalArgumentException();
 		}
-		
+
 		int idx = Math.abs(clave.hashCode()) % slots.length;
-		List<CV>lista = slots[idx];
-		for (CV cv:lista){
-			if (cv.getClave().equals(clave))
+		List<CV> lista = slots[idx];
+		for (CV cv : lista) {
+			if (cv.getClave().equals(clave)) {
 				cv.setValor(valor);
-			return;
+				return;
+			}
 		}
-		lista.add(new CV(clave,valor));
+
+		slots[idx].add(new CV(clave, valor));
 		nDatos++;
 
 	}
 
 	@Override
 	public String get(String clave) {
-		
+
 		if ((clave == null) || (clave.isEmpty() == true)) {
 			throw new IllegalArgumentException();
 		}
-		
+
 		int idx = Math.abs(clave.hashCode()) % slots.length;
-		List<CV>lista=slots[idx];
-		for(CV cv:lista){
+		List<CV> lista = slots[idx];
+		for (CV cv : lista) {
 			if (cv.getClave().equals(clave))
-				return cv.getValor();			
+				return cv.getValor();
 		}
 		return null;
 	}
 
 	@Override
 	public String remove(String clave) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return nDatos;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		for (int i = 0; i < slots.length; i++) {
+			slots[i].clear();
+		}
 
 	}
-	public void print(){
-		
-		for(int i=0;i<slots.length;i++){
-			System.out.println(slots[i]);
+
+	public void print() {
+		for (int j = 0; j < slots.length; j++) {
+			for (int i = 0; i < slots[j].size(); i++) {
+
+				System.out.println(j + " " + slots[j].get(i).getClave() + " "
+						+ slots[j].get(i).getValor());
+			}
+			System.out.println("");
 		}
 	}
 }
