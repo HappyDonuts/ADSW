@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class HashListasTest {
 	HashListas datosHashListas = new HashListas(3);
-	
+
 	/**
 	 * Ponemos un elemento
 	 */
@@ -25,18 +25,18 @@ public class HashListasTest {
 	 */
 	@Test
 	public void testPutLineal2() {
-//		datosHashListas.clear();
+		// datosHashListas.clear();
 		datosHashListas.put("uno", "num1");
 		datosHashListas.put("dos", "num2");
 		datosHashListas.put("tres", "num3");
-//		datosHashListas.put("cuatro", "num4");
-		
-//		datosHashListas.print();
+		// datosHashListas.put("cuatro", "num4");
+
+		// datosHashListas.print();
 
 		assertEquals(datosHashListas.get("uno"), "num1");
 		assertEquals(datosHashListas.get("dos"), "num2");
 		assertEquals(datosHashListas.get("tres"), "num3");
-//		assertEquals(datosHashListas.get("cuatro"), "num4");
+		// assertEquals(datosHashListas.get("cuatro"), "num4");
 	}
 
 	/**
@@ -142,20 +142,6 @@ public class HashListasTest {
 	}
 
 	/**
-	 * Intentamos poner un elemento a un diccionario lleno, vemos que no cabe el
-	 * elemento
-	 */
-	@Test(expected = RuntimeException.class)
-	public void testPutLineal9() throws Exception {
-		datosHashListas.put("uno", "num1");
-		datosHashListas.put("dos", "num2");
-		datosHashListas.put("tres", "num3");
-		datosHashListas.put("cuatro", "num4");
-		datosHashListas.put("cinco", "num5");
-		datosHashListas.put("seis", "num6");
-	}
-
-	/**
 	 * introducimos una clave nula
 	 */
 	@Test(expected = IllegalArgumentException.class)
@@ -214,10 +200,10 @@ public class HashListasTest {
 		datosHashListas.clear();
 		datosHashListas.put("uno", "num1");
 		assertEquals(datosHashListas.get("uno"), "num1");
-		assertEquals(datosHashListas.size(),1);
+		assertEquals(datosHashListas.size(), 1);
 		datosHashListas.remove("uno");
-		assertEquals(datosHashListas.size(),0);
-		
+		assertEquals(datosHashListas.size(), 0);
+
 		assertNull(datosHashListas.get("uno"));
 	}
 
@@ -232,8 +218,8 @@ public class HashListasTest {
 		datosHashListas.put("tres", "num3");
 		datosHashListas.put("cuatro", "num4");
 		datosHashListas.put("cinco", "num5");
-		assertEquals(datosHashListas.size(),5);
-		
+		assertEquals(datosHashListas.size(), 5);
+
 		datosHashListas.remove("uno");
 		datosHashListas.remove("dos");
 		datosHashListas.remove("tres");
@@ -322,12 +308,12 @@ public class HashListasTest {
 	@Test
 	public void testClearLineal3() {
 		datosHashListas.clear();
-		 datosHashListas.put("uno", "num1");
-		 assertEquals(datosHashListas.size(), 1);
-		 datosHashListas.clear();
-		 assertEquals(datosHashListas.size(), 0);
-		 datosHashListas.put("uno", "num1");
-		 assertEquals(datosHashListas.size(), 1);
+		datosHashListas.put("uno", "num1");
+		assertEquals(datosHashListas.size(), 1);
+		datosHashListas.clear();
+		assertEquals(datosHashListas.size(), 0);
+		datosHashListas.put("uno", "num1");
+		assertEquals(datosHashListas.size(), 1);
 	}
 
 }
