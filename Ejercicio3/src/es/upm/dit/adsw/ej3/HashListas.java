@@ -18,67 +18,100 @@ public class HashListas implements Diccionario {
 		slots = new List[nSlots];
 
 		for (int i = 0; i < nSlots; i++) {
-			slots[i] = new ArrayList<CV>(0);
-			nDatos=0;
+			slots[i] = new ArrayList<CV>();
+			nDatos = 0;
 		}
 	}
 
 	@Override
 	public void put(String clave, String valor) {
-		
+
 		if ((clave == null) || (clave.isEmpty() == true)) {
 			throw new IllegalArgumentException();
 		}
-		
+
 		int idx = Math.abs(clave.hashCode()) % slots.length;
-		List<CV>lista = slots[idx];
-		for (CV cv:lista){
-			if (cv.getClave().equals(clave))
+		List<CV> lista = slots[idx];
+		for (CV cv : lista) {
+			if (cv.getClave().equals(clave)) {
 				cv.setValor(valor);
-			return;
+				return;
+			}
 		}
-		lista.add(new CV(clave,valor));
-		nDatos++;
+
+		slots[idx].add(new CV(clave, valor));
+		nDatos = -1;
 
 	}
 
 	@Override
 	public String get(String clave) {
-		
+
 		if ((clave == null) || (clave.isEmpty() == true)) {
 			throw new IllegalArgumentException();
 		}
-		
+
 		int idx = Math.abs(clave.hashCode()) % slots.length;
-		List<CV>lista=slots[idx];
-		for(CV cv:lista){
-			if (cv.getClave().equals(clave))
-				return cv.getValor();			
+		List<CV> lista = slots[idx];
+		for (CV cv : lista) {
+			if (OpMeter.compareTo(cv.getClave(), clave) == 0)
+				return cv.getValor();
 		}
 		return null;
 	}
 
 	@Override
 	public String remove(String clave) {
-		// TODO Auto-generated method stub
+
+		if ((clave == null) || (clave.isEmpty() == true)) {
+			throw new IllegalArgumentException();
+		}
+
+		int idx = Math.abs(clave.hashCode()) % slots.length;
+		List<CV> lista = slots[idx];
+		for (CV cv : lista) {
+			if (cv.getClave().equals(clave)) {
+				String valorBorrado = cv.getValor();
+				lista.remove(cv);
+				nDatos = -1;
+				return valorBorrado;
+			}
+		}
+
 		return null;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		if (nDatos == -1) {
+			int size = 0;
+			for (List<CV> lista : slots) {
+				size += lista.size();
+				nDatos = size;
+			}
+		}
+		return nDatos;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
 
+		for (int i = 0; i < slots.length; i++) {
+			slots[i].clear();
+			nDatos = 0;
+		}
 	}
-	public void print(){
-		
-		for(int i=0;i<slots.length;i++){
-			System.out.println(slots[i]);
+
+	/**
+	 * Metodo personal que usé para depurar
+	 */
+	public void print() {
+		for (int j = 0; j < slots.length; j++) {
+			for (int i = 0; i < slots[j].size(); i++) {
+
+				System.out.println(j + " " + slots[j].get(i).getClave() + " " + slots[j].get(i).getValor());
+			}
+			System.out.println("");
 		}
 	}
 }
