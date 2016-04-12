@@ -4,15 +4,19 @@ public class Receiver implements Runnable {
 
 	int id;
 	TsRouter router;
-	
-	Receiver(int id, TsRouter router){
-		this.id=id;
-		this.router=router;
+
+	Receiver(int id, TsRouter router) {
+		this.id = id;
+		this.router = router;
 	}
 
 	@Override
 	public void run() {
-		router.get();
-		Nap.sleep(1000);
+		while (true) {
+			router.get();
+			Log.receiving(id);
+			Nap.sleep(1000);
+			
+		}
 	}
 }

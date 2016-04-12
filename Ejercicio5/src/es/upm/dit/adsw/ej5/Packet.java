@@ -38,4 +38,8 @@ public class Packet {
     public int getData() {
         return data;
     }
+    
+    public void print(){
+    	System.out.println(priority);
+    }
 }
