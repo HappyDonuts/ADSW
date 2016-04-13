@@ -78,14 +78,6 @@ public class TsRouterTest {
 	}
 	
 	/**
-	 * Falla si al introducir null el metodo send no devuelve una excepcion
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void test4() {
-			router.send(null);
-	}
-	
-	/**
 	 * Falla si al recibir un paquete de la cola vacia no devuelve null 
 	 */
 	@Test

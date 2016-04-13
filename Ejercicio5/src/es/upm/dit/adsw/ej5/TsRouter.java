@@ -43,9 +43,7 @@ public class TsRouter {
 	 *            el paquete a encolar.
 	 */
 	public synchronized void send(Packet newPaquete) {
-		if (newPaquete == null) {
-			throw new IllegalArgumentException();
-		}
+
 		queue[nDatos] = newPaquete;
 		nDatos++;
 		if (nDatos == queue.length) {

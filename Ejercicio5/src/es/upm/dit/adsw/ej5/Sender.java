@@ -12,15 +12,17 @@ public class Sender implements Runnable {
 
 	@Override
 	public void run() {
-		try {
-			while (true) {
+		while (true) {
+			try {
+
 				Packet paquete = new Packet(Priority.random(), 1);
 				router.send(paquete);
 				Log.sending(id);
 				Nap.random(5, 10);
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 }
