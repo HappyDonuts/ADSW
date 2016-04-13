@@ -8,17 +8,19 @@ public class Sender implements Runnable {
 	Sender(int id, TsRouter router) {
 		this.id = id;
 		this.router = router;
-
 	}
 
 	@Override
 	public void run() {
-
-		while (true) {
-			Packet paquete = new Packet(Priority.random(), 1);
-			router.send(paquete);
-			Log.sending(id);
-			Nap.sleep(1000);
+		try {
+			while (true) {
+				Packet paquete = new Packet(Priority.random(), 1);
+				router.send(paquete);
+				Log.sending(id);
+				Nap.random(5, 10);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

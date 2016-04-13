@@ -12,11 +12,14 @@ public class Receiver implements Runnable {
 
 	@Override
 	public void run() {
-		while (true) {
-			router.get();
-			Log.receiving(id);
-			Nap.sleep(1000);
-			
+		try {
+			while (true) {
+				router.get();
+				Log.receiving(id);
+				Nap.random(5, 10);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
