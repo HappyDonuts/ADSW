@@ -14,8 +14,6 @@ public class TsRouterTest {
 	private final Packet packetM2 = new Packet(Priority.MEDIA, 2);
 	private final Packet packetM3 = new Packet(Priority.MEDIA, 3);
 	private final Packet packetB1 = new Packet(Priority.BAJA, 1);
-	private final Packet packetB2 = new Packet(Priority.BAJA, 2);
-	private final Packet packetB3 = new Packet(Priority.BAJA, 3);
 
 	TsRouter router = new TsRouter(4);
 
