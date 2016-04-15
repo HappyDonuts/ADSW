@@ -25,7 +25,7 @@ public class TsList {
 
 	}
 
-	public String get(String clave) {
+	public synchronized String get(String clave) {
 		viewer.dump(this, 1, 0);
 
 		for (CV cv : lista) {
