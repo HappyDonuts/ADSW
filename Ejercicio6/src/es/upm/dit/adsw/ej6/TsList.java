@@ -15,8 +15,8 @@ public class TsList {
 
 	public String get(String clave) {
 		monitor.openReading();
-		My.assertEquals(monitor.getNWriters(), 0);
-		viewer.dump(this, monitor.getNReaders(), monitor.getNWriters());
+		My.assertEquals(monitor.getNWritersIn(), 0);
+		viewer.dump(this, monitor.getNReadersIn(), monitor.getNWritersIn());
 
 		try {
 			for (CV cv : lista) {
@@ -32,9 +32,9 @@ public class TsList {
 
 	public void put(String clave, String valor) {
 		monitor.openWriting();
-		My.assertEquals(monitor.getNWriters(), 1);
-		My.assertEquals(monitor.getNReaders(), 0);
-		viewer.dump(this, monitor.getNReaders(), monitor.getNWriters());
+		My.assertEquals(monitor.getNWritersIn(), 1);
+		My.assertEquals(monitor.getNReadersIn(), 0);
+		viewer.dump(this, monitor.getNReadersIn(), monitor.getNWritersIn());
 
 		try {
 			for (CV cv : lista) {
@@ -51,9 +51,9 @@ public class TsList {
 
 	public String remove(String clave) {
 		monitor.openWriting();
-		My.assertEquals(monitor.getNWriters(), 1);
-		My.assertEquals(monitor.getNReaders(), 0);
-		viewer.dump(this, monitor.getNReaders(), monitor.getNWriters());
+		My.assertEquals(monitor.getNWritersIn(), 1);
+		My.assertEquals(monitor.getNReadersIn(), 0);
+		viewer.dump(this, monitor.getNReadersIn(), monitor.getNWritersIn());
 
 		try {
 			for (CV cv : lista) {
@@ -71,8 +71,8 @@ public class TsList {
 
 	public void clear() {
 		monitor.openWriting();
-		My.assertEquals(monitor.getNWriters(), 1);
-		My.assertEquals(monitor.getNReaders(), 0);
+		My.assertEquals(monitor.getNWritersIn(), 1);
+		My.assertEquals(monitor.getNReadersIn(), 0);
 
 		try {
 			lista.clear();

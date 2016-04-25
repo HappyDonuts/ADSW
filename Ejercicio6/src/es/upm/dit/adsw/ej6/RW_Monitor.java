@@ -34,11 +34,11 @@ public class RW_Monitor {
 		notifyAll();
 	}
 
-	public synchronized int getNReaders() {
+	public synchronized int getNReadersIn() {
 		return nReaders;
 	}
 
-	public synchronized int getNWriters() {
+	public synchronized int getNWritersIn() {
 		return nWriters;
 	}
 
