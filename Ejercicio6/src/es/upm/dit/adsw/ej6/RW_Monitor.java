@@ -4,6 +4,8 @@ public class RW_Monitor {
 
 	private int nReaders = 0;
 	private int nWriters = 0;
+	
+	public RW_Monitor(){}
 
 	public synchronized void openReading() {
 		while (nWriters > 0) {

@@ -15,7 +15,6 @@ public class TsCacheTest {
 	 */
 	@Test
 	public void testPutLineal1() {
-		cache.clear();
 		cache.put("uno", "num1");
 		assertEquals(cache.get("uno"), "num1");
 	}
@@ -25,7 +24,6 @@ public class TsCacheTest {
 	 */
 	@Test
 	public void testPutLineal2() {
-		cache.clear();
 		cache.put("uno", "num1");
 		cache.put("dos", "num2");
 		cache.put("tres", "num3");
@@ -42,7 +40,6 @@ public class TsCacheTest {
 	 */
 	@Test
 	public void testPutLineal3() {
-		cache.clear();
 		cache.put("uno", "num1");
 		assertEquals(cache.get("uno"), "num1");
 		cache.put("uno", "num1sustituto1");

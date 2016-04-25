@@ -6,7 +6,7 @@ import java.util.List;
 public class TsList {
 
 	List<CV> lista;
-	RW_Monitor monitor;
+	private RW_Monitor monitor= new RW_Monitor();
 	private LogViewer viewer = LogViewer.getInstance();
 
 	public TsList() {
@@ -29,6 +29,7 @@ public class TsList {
 	}
 
 	public void put(String clave, String valor) {
+		monitor.getNReaders();
 		monitor.openWriting();
 		viewer.dump(this, monitor.getNReaders(), monitor.getNWriters());
 
